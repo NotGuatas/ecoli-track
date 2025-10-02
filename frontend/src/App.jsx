@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Activities from "./pages/Activities";
 import PrivateRoute from "./PrivateRoute";
+import Register from "./pages/Register";   // nuevo
+import Profile from "./pages/Profile";     // nuevo
 
 export default function App() {
   return (
@@ -9,11 +11,20 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />     {/* público */}
         <Route
           path="/app/activities"
           element={
             <PrivateRoute>
               <Activities />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/app/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
             </PrivateRoute>
           }
         />

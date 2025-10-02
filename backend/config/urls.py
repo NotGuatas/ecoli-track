@@ -30,5 +30,6 @@ urlpatterns = [
 
     # API CRUD
     path('api/', include('tracker.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
